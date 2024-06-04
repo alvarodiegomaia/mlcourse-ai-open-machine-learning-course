@@ -1,0 +1,128 @@
+Traceback (most recent call last):
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+    return future.result()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Read the training and test data sets, change paths if needed
+times = ["time%s" % i for i in range(1, 11)]
+# customize the paths if needed
+train_df = pd.read_csv(
+    PATH_TO_DATA / "train_sessions.csv.zip", index_col="session_id", parse_dates=times
+)
+test_df = pd.read_csv(
+    PATH_TO_DATA / "test_sessions.csv.zip", index_col="session_id", parse_dates=times
+)
+
+# Sort the data by time
+train_df = train_df.sort_values(by="time1")
+
+# Look at the first rows of the training set
+train_df.head(2)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Input [0;32mIn [3][0m, in [0;36m<cell line: 4>[0;34m()[0m
+[1;32m      2[0m times [38;5;241m=[39m [[38;5;124m"[39m[38;5;124mtime[39m[38;5;132;01m%s[39;00m[38;5;124m"[39m [38;5;241m%[39m i [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m1[39m, [38;5;241m11[39m)]
+[1;32m      3[0m [38;5;66;03m# customize the paths if needed[39;00m
+[0;32m----> 4[0m train_df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m
+[1;32m      5[0m [43m    [49m[43mPATH_TO_DATA[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mtrain_sessions.csv.zip[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mindex_col[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43msession_id[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mparse_dates[49m[38;5;241;43m=[39;49m[43mtimes[49m
+[1;32m      6[0m [43m)[49m
+[1;32m      7[0m test_df [38;5;241m=[39m pd[38;5;241m.[39mread_csv(
+[1;32m      8[0m     PATH_TO_DATA [38;5;241m/[39m [38;5;124m"[39m[38;5;124mtest_sessions.csv.zip[39m[38;5;124m"[39m, index_col[38;5;241m=[39m[38;5;124m"[39m[38;5;124msession_id[39m[38;5;124m"[39m, parse_dates[38;5;241m=[39mtimes
+[1;32m      9[0m )
+[1;32m     11[0m [38;5;66;03m# Sort the data by time[39;00m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/util/_decorators.py:311[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    305[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    306[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    307[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39marguments),
+[1;32m    308[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    309[0m         stacklevel[38;5;241m=[39mstacklevel,
+[1;32m    310[0m     )
+[0;32m--> 311[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/io/parsers/readers.py:680[0m, in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)[0m
+[1;32m    665[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
+[1;32m    666[0m     dialect,
+[1;32m    667[0m     delimiter,
+[0;32m   (...)[0m
+[1;32m    676[0m     defaults[38;5;241m=[39m{[38;5;124m"[39m[38;5;124mdelimiter[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124m,[39m[38;5;124m"[39m},
+[1;32m    677[0m )
+[1;32m    678[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
+[0;32m--> 680[0m [38;5;28;01mreturn[39;00m [43m_read[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[43mkwds[49m[43m)[49m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/io/parsers/readers.py:575[0m, in [0;36m_read[0;34m(filepath_or_buffer, kwds)[0m
+[1;32m    572[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
+[1;32m    574[0m [38;5;66;03m# Create the parser.[39;00m
+[0;32m--> 575[0m parser [38;5;241m=[39m [43mTextFileReader[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+[1;32m    577[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
+[1;32m    578[0m     [38;5;28;01mreturn[39;00m parser
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/io/parsers/readers.py:934[0m, in [0;36mTextFileReader.__init__[0;34m(self, f, engine, **kwds)[0m
+[1;32m    931[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
+[1;32m    933[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[0;32m--> 934[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_engine[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mengine[49m[43m)[49m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1218[0m, in [0;36mTextFileReader._make_engine[0;34m(self, f, engine)[0m
+[1;32m   1214[0m     mode [38;5;241m=[39m [38;5;124m"[39m[38;5;124mrb[39m[38;5;124m"[39m
+[1;32m   1215[0m [38;5;66;03m# error: No overload variant of "get_handle" matches argument types[39;00m
+[1;32m   1216[0m [38;5;66;03m# "Union[str, PathLike[str], ReadCsvBuffer[bytes], ReadCsvBuffer[str]]"[39;00m
+[1;32m   1217[0m [38;5;66;03m# , "str", "bool", "Any", "Any", "Any", "Any", "Any"[39;00m
+[0;32m-> 1218[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m [43mget_handle[49m[43m([49m[43m  [49m[38;5;66;43;03m# type: ignore[call-overload][39;49;00m
+[1;32m   1219[0m [43m    [49m[43mf[49m[43m,[49m
+[1;32m   1220[0m [43m    [49m[43mmode[49m[43m,[49m
+[1;32m   1221[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m   1222[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mcompression[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m   1223[0m [43m    [49m[43mmemory_map[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mmemory_map[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m,[49m
+[1;32m   1224[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[43mis_text[49m[43m,[49m
+[1;32m   1225[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding_errors[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mstrict[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m,[49m
+[1;32m   1226[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mstorage_options[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m   1227[0m [43m[49m[43m)[49m
+[1;32m   1228[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[1;32m   1229[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/io/common.py:740[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[1;32m    735[0m [38;5;66;03m# ZIP Compression[39;00m
+[1;32m    736[0m [38;5;28;01melif[39;00m compression [38;5;241m==[39m [38;5;124m"[39m[38;5;124mzip[39m[38;5;124m"[39m:
+[1;32m    737[0m     [38;5;66;03m# error: Argument 1 to "_BytesZipFile" has incompatible type "Union[str,[39;00m
+[1;32m    738[0m     [38;5;66;03m# BaseBuffer]"; expected "Union[Union[str, PathLike[str]],[39;00m
+[1;32m    739[0m     [38;5;66;03m# ReadBuffer[bytes], WriteBuffer[bytes]]"[39;00m
+[0;32m--> 740[0m     handle [38;5;241m=[39m [43m_BytesZipFile[49m[43m([49m
+[1;32m    741[0m [43m        [49m[43mhandle[49m[43m,[49m[43m [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcompression_args[49m[43m  [49m[38;5;66;43;03m# type: ignore[arg-type][39;49;00m
+[1;32m    742[0m [43m    [49m[43m)[49m
+[1;32m    743[0m     [38;5;28;01mif[39;00m handle[38;5;241m.[39mmode [38;5;241m==[39m [38;5;124m"[39m[38;5;124mr[39m[38;5;124m"[39m:
+[1;32m    744[0m         handles[38;5;241m.[39mappend(handle)
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai_bonus_assignments-4WCvb1Yy-py3.10/lib/python3.10/site-packages/pandas/io/common.py:887[0m, in [0;36m_BytesZipFile.__init__[0;34m(self, file, mode, archive_name, **kwargs)[0m
+[1;32m    881[0m kwargs_zip[38;5;241m.[39mupdate(kwargs)
+[1;32m    883[0m [38;5;66;03m# error: Argument 1 to "__init__" of "ZipFile" has incompatible type[39;00m
+[1;32m    884[0m [38;5;66;03m# "Union[_PathLike[str], Union[str, Union[IO[Any], RawIOBase, BufferedIOBase,[39;00m
+[1;32m    885[0m [38;5;66;03m# TextIOBase, TextIOWrapper, mmap]]]"; expected "Union[Union[str,[39;00m
+[1;32m    886[0m [38;5;66;03m# _PathLike[str]], IO[bytes]]"[39;00m
+[0;32m--> 887[0m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs_zip[49m[43m)[49m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/zipfile.py:1249[0m, in [0;36mZipFile.__init__[0;34m(self, file, mode, compression, allowZip64, compresslevel, strict_timestamps)[0m
+[1;32m   1247[0m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[1;32m   1248[0m     [38;5;28;01mtry[39;00m:
+[0;32m-> 1249[0m         [38;5;28mself[39m[38;5;241m.[39mfp [38;5;241m=[39m [43mio[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[43mfilemode[49m[43m)[49m
+[1;32m   1250[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mOSError[39;00m:
+[1;32m   1251[0m         [38;5;28;01mif[39;00m filemode [38;5;129;01min[39;00m modeDict:
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../_static/data/assignment4/train_sessions.csv.zip'
+FileNotFoundError: [Errno 2] No such file or directory: '../../_static/data/assignment4/train_sessions.csv.zip'
+
